@@ -3,31 +3,30 @@ import {
     LitElement,
     css,
   } from "https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js"
-  
-  export class TimeLeft extends LitElement {
-    static styles = css`
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-        background: #AFBBF2;
-        color: #000;
-      }
+
+export class TimeLeft extends LitElement {
+  static styles = css`
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background: #AFBBF2;
+      color: #000;
+    }
       
-      time-left {
-        background: #D3FFF3;
-        padding: 100px;
-        font-size: 90px;
-        border-radius: 25px;
-        border: 2px solid;
-        box-shadow: 5px 10px 8px #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    `
+    time-left {
+      background: #D3FFF3;
+      padding: 100px;
+      font-size: 90px;
+      border-radius: 25px;
+      border: 2px solid;
+      box-shadow: 5px 10px 8px #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }`
 
     time(hour, minute) {
       return new Date(
@@ -41,6 +40,14 @@ import {
   
     constructor() {
       super()
+
+      this.now = new Date()
+      this.times = [
+        this.time(9, 30),
+        this.time(10, 50),
+        this.time(13, 5),
+        this.time(14, 25),
+      ]
   
       setInterval(() => {
         this.now = new Date()
