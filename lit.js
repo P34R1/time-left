@@ -43,5 +43,4 @@ export class TimeLeft extends LitElement {
   }
 }
 
-render(TimeLeft, document.body)
-//customElements.define('time-left', TimeLeft);
+customElements.define('time-left', TimeLeft);
