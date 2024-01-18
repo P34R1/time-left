@@ -1,3 +1,8 @@
+* {
+  padding: none;
+  border: none;
+}
+
 body {
   display: flex;
   justify-content: center;
