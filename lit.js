@@ -70,7 +70,7 @@ export class TimeLeft extends LitElement {
     }
   
     render() {
-      if (this.times == undefined || this.times == []) html``
+      if (this.times == undefined || this.times == []) return html``
       for (let time of this.times) {
         if (this.now > time) continue
         return html`${this.timeUntil(time)}`
