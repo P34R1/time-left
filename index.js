@@ -8,23 +8,23 @@ setInterval(updateTimeLeft, 100, elementToChange)
 
 function updateTimeLeft(elementToChange) {
   now = new Date()
-  const periods = [time(9, 30), time(10, 50), time(13, 5), time(14, 25)]
+  const times = [time(9, 30), time(10, 50), time(13, 5), time(14, 25)]
 
-  for (let period of periods) {
-    if (now > period) continue
-    elementToChange.innerText = timeUntil(period)
+  for (let time of times) {
+    if (now > time) continue
+    elementToChange.innerText = timeUntil(time)
     break
   }
 }
 
-function timeUntil(periodEnd) {
+function timeUntil(time) {
   const totalCurrentMinutes = now.getHours() * 60 + now.getMinutes()
   const totalCurrentSeconds = totalCurrentMinutes * 60 + now.getSeconds()
-  const totalPeriodEndMinutes =
-    periodEnd.getHours() * 60 + periodEnd.getMinutes()
-  const totalPeriodEndSeconds = totalPeriodEndMinutes * 60
+  const totalTimeMinutes =
+    time.getHours() * 60 + time.getMinutes()
+  const totalTimeSeconds = totalTimeMinutes * 60
 
-  const totalSecondsLeft = totalPeriodEndSeconds - totalCurrentSeconds
+  const totalSecondsLeft = totalTimeSeconds - totalCurrentSeconds
   const minutes = Math.floor(totalSecondsLeft / 60)
     .toString()
     .padStart(2, "0")
