@@ -1,9 +1,9 @@
+const elementToChange = document.querySelector("main#timeLeft")
 let now
 
 const time = (hour, minute) =>
   new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute)
 
-const elementToChange = document.querySelector("main#timeLeft")
 setInterval(updateTimeLeft, 100, elementToChange)
 
 function updateTimeLeft(elementToChange) {
