@@ -1,21 +1,23 @@
-const time = (hour, minute, now) =>
+let now
+
+const time = (hour, minute) =>
   new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute)
 
 const elementToChange = document.querySelector("main#timeLeft")
 setInterval(updateTimeLeft, 100, elementToChange)
 
 function updateTimeLeft(elementToChange) {
-  const now = new Date()
-  const periods = [time(9, 30, now), time(10, 50, now), time(13, 5, now), time(14, 25, now)]
+  now = new Date()
+  const periods = [time(9, 30), time(10, 50), time(13, 5), time(14, 25)]
 
   for (let period of periods) {
     if (now > period) continue
-    elementToChange.innerText = timeUntil(period, now)
+    elementToChange.innerText = timeUntil(period)
     break
   }
 }
 
-function timeUntil(periodEnd, now) {
+function timeUntil(periodEnd) {
   const totalCurrentMinutes = now.getHours() * 60 + now.getMinutes()
   const totalCurrentSeconds = totalCurrentMinutes * 60 + now.getSeconds()
   const totalPeriodEndMinutes =
