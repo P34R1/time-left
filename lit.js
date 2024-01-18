@@ -37,10 +37,8 @@ export class TimeLeft extends LitElement {
         minute,
       )
     }
-  
-    constructor() {
-      super()
 
+    _construct() {
       this.now = new Date()
       this.times = [
         this.time(9, 30),
@@ -48,16 +46,12 @@ export class TimeLeft extends LitElement {
         this.time(13, 5),
         this.time(14, 25),
       ]
+    }
   
-      setInterval(() => {
-        this.now = new Date()
-        this.times = [
-          this.time(9, 30),
-          this.time(10, 50),
-          this.time(13, 5),
-          this.time(14, 25),
-        ]
-      }, 100)
+    constructor() {
+      super()
+      this._construct()
+      setInterval(this._construct, 100)
     }
   
     timeUntil(time) {
@@ -76,6 +70,7 @@ export class TimeLeft extends LitElement {
     }
   
     render() {
+      if (this.times == undefined || this.times == []) html``
       for (let time of this.times) {
         if (this.now > time) continue
         return html`${this.timeUntil(time)}`
