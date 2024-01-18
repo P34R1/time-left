@@ -1,7 +1,7 @@
 const time = (hour, minute, now) =>
   new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute)
 
-const elementToChange = document.querySelector("div#timeLeft")
+const elementToChange = document.querySelector("main#timeLeft")
 setInterval(updateTimeLeft, 100, elementToChange)
 
 function updateTimeLeft(elementToChange) {
