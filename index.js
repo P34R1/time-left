@@ -1,13 +1,13 @@
-const now = new Date()
-const time = (hour, minute) =>
+const time = (hour, minute, now) =>
   new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute)
-const periods = [time(9, 30), time(10, 50), time(13, 5), time(14, 25)]
 
 const elementToChange = document.querySelector("div#timeLeft")
 setInterval(updateTimeLeft, 100, elementToChange)
 
 function updateTimeLeft(elementToChange) {
   const now = new Date()
+  const periods = [time(9, 30, now), time(10, 50, now), time(13, 5, now), time(14, 25, now)]
+
   for (let period of periods) {
     if (now > period) continue
     elementToChange.innerText = timeUntil(period, now)
